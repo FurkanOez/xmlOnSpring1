@@ -14,14 +14,13 @@ import java.util.*;
 public class UuidService {
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:duckdb:/Users/foez/IdeaProjects/xmlOnSpring1/furkan");
+        return DriverManager.getConnection("/path/to/your/file");
     }
 
     public HashSet<Attribute> viewData() {
         HashSet<Attribute> attributes = new HashSet<>();
-//dosyayi koyup ardindan dosyadaki tüm dosyalari aliyoruz ve for loop icinde bu filelari almasi icin döndürüyoruz
         try {
-            File xmlFile = new File("C:/Users/foez/Desktop/mert.xml");
+            File xmlFile = new File("/path/to/your/file");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dbFactory.newDocumentBuilder();
             Document document = documentBuilder.parse(xmlFile);
@@ -150,35 +149,3 @@ public class UuidService {
 
         return result;
     }
-
-//    public String SearchByKey() throws SQLException {
-//        try (Connection conn = getConnection();) {
-//
-//        }
-//        Statement stmt = conn.createStatement();
-//        String sql = "SELECT * FROM attrs";
-//        String query = "SELECT * FROM attrs WHERE attrName = ? AND attrValue = ?";
-//
-//    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Search contoller olustur /search kullansin
-//Request parameter olarak key ve value adinda iki tane alan alsin bunlari servise göndersin
-//db de select query at
-//key ve value arat
